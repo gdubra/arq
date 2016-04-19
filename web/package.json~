@@ -1,0 +1,32 @@
+{
+  "name": "isca-angularjs-web-client",
+  "version": "1.0.0",
+  "description": "basic arq angularjs 1.x client",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.5.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "browserify": "^13.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-if": "^2.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "lodash": "^4.6.1",
+    "merge-stream": "^1.0.0",
+    "pretty-hrtime": "^1.0.2",
+    "require-dir": "^0.3.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gaston dubra",
+  "license": "ISC"
+}

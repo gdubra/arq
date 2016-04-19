@@ -1,0 +1,30 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    # AdminBundle - Event listeners
+    user_manager:
+        class: ApiBundle\Service\UserManager
+        arguments: 
+            fos_user_class: "%fos_user.model.user.class%"
+            encoder_factory: "@security.encoder_factory"
+            username_canonicalizer: "@fos_user.util.username_canonicalizer"
+            email_canonicalizer: "@fos_user.util.email_canonicalizer"
+            fos_user_entity_manager: "@fos_user.entity_manager"
+            entity_manager: "@doctrine.orm.entity_manager"
+            security_context: "@security.context"
+            csrf_provider: "@form.csrf_provider"
+            container: "@service_container"
+            validation_service : "@validation_service"
+
+    event.authentication_success_listener:
+        class: ApiBundle\EventListener\AuthenticationSuccessListener
+        arguments:  ["@user_manager"]
+        tags:
+            - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+    validation_service:
+        class: ApiBundle\Service\ValidationService
+        arguments: ["@service_container"]            

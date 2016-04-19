@@ -1,0 +1,15 @@
+
+login_request:
+    pattern:    /login_request
+    defaults:   { _controller: "ApiBundle:Access:requestLoginFormCSRF" }
+    methods:    [GET]
+    
+login_check:
+    pattern:    /login_check
+    methods:    [POST]
+
+    
+lindex:
+    pattern:    /index
+    defaults:   { _controller: "ApiBundle:Default:index" }
+    methods:    [GET]

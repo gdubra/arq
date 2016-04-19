@@ -1,0 +1,19 @@
+ApiBundle\Entity\User:
+    exclusion_policy: ALL
+    properties:
+        id:
+            expose: true
+            groups: ['index','edit']
+        welcomeEmailSentAt:
+            expose: true
+            groups: ['index']
+        firstName:
+            expose: true
+            groups: ['edit']
+        lastName:
+            expose: true
+            groups: ['edit']
+    virtual_properties:
+        getFullName:
+            serialized_name: fullName
+            groups: ['index']        

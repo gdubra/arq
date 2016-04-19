@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"data-ng-app="myApp">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <title>Arquitectura Cliente Web Servidor API</title>
+        <base href="/">
+        <link rel="stylesheet" type="text/css" href="web/css/default.css" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body ng-cloak>
+        <div data-ui-view="header"></div>
+        <div data-ui-view="sidebar"></div>
+        <div data-ui-view="container" class="container"></div>
+        <div data-ui-view="footer"></div>
+        
+        <!-- JS config -->
+        <script type="text/javascript">
+            api_base_url = 'http://local.arquitectura.com/api';
+        </script>
+
+        <!-- JS Bundles -->
+        <script src="web/js/lib_bundle.js"></script>
+        <script src="web/js/app_bundle.js"></script>
+
+    </body>
+</html>

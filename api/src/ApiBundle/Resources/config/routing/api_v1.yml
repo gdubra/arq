@@ -1,0 +1,5 @@
+ApiBundle_default:
+    resource: "default.yml"
+
+ApiBundle_users:
+    resource: "user.yml"

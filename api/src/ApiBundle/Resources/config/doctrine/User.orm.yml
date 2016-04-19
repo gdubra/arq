@@ -1,0 +1,16 @@
+
+ApiBundle\Entity\User:
+    type:  entity
+    table: fos_user
+    repositoryClass: ApiBundle\Repository\UserRepository
+    id:
+        id:                                     { type: integer, generator: { strategy: AUTO } }
+    fields:
+        firstName:                              { type: string, nullable: true }
+        lastName:                               { type: string, nullable: true }
+        createdAt:                              { type: datetime }
+        updatedAt:                              { type: datetime, nullable: true }
+        welcomeEmailSentAt:                     { type: datetime, nullable: true }
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt ]
+        preUpdate: [ setUpdatedAt ]

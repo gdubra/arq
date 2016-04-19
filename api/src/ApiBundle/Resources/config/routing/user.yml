@@ -1,0 +1,45 @@
+
+api_user_get_all_existing_roles:
+    pattern:    /users/roles.{_format}
+    defaults:   { _controller: "ApiBundle:User:getAllExistingUserRoles" }
+    methods:    [GET]
+
+api_user_get:
+    pattern:    /users/{userId}.{_format}
+    defaults:   { _controller: "ApiBundle:User:getUser" }
+    methods:    [GET]
+
+api_users_get:
+    pattern:    /users.{_format}
+    defaults:   { _controller: "ApiBundle:User:getUsers" }
+    methods:    [GET]
+
+api_user_delete:
+    pattern:    /users/{userId}.{_format}
+    defaults:   { _controller: "ApiBundle:User:deleteUser" }
+    methods:    [DELETE]
+
+api_users_switch_to_household:
+    pattern:    /users/switch_to_household/{householdHashId}.{_format}
+    defaults:   { _controller: "ApiBundle:User:switchToHousehold" }
+    methods:    [GET]
+    
+api_users_create:
+    pattern:    /users.{_format}
+    defaults:   { _controller: "ApiBundle:User:createUser" }
+    methods:    [POST]
+
+api_users_update:
+    pattern:    /users/{userId}.{_format}
+    defaults:   { _controller: "ApiBundle:User:updateUser" }
+    methods:    [PUT]
+
+api_users_check_password_reset_token:
+    pattern:    /users/check_password_reset_token/{token}.{_format}
+    defaults:   { _controller: "ApiBundle:User:checkPasswordResetToken" }
+    methods:    [GET]
+    
+api_users_reset_password_and_authenticate_user:
+    pattern:    /users/reset_password_and_authenticate_user/{token}.{_format}
+    defaults:   { _controller: "ApiBundle:User:resetPasswordAndAuthenticateUser" }
+    methods:    [POST]

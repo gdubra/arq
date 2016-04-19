@@ -1,0 +1,31 @@
+
+<div class="row">
+    
+    <h2>Users list</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.fullName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.roles}}</td>
+                <td>
+                    <a class="btn btn-info" ng-href="/users/{{user.id}}">Show</a>
+                    <a class="btn btn-primary" ng-href="/users/edit/{{user.id}}">Edit</a>
+                    <span class="btn btn-danger" data-ng-click="deleteUser(user.id)">Delete</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/users/new">New user</a>
+    
+</div>

@@ -1,0 +1,24 @@
+
+<div class="row">
+    
+    <h2>View user</h2>
+
+    <dl class="dl-horizontal">
+        <dt>First name:</dt>
+        <dd>{{user.firstName}}</dd>
+        <dt>Last name:</dt>
+        <dd>{{user.lastName}}</dd>
+        <dt>Email:</dt>
+        <dd>{{user.email}}</dd>
+        <dt>Roles:</dt>
+        <dd>
+            <ul>
+                <li ng-repeat="role in user.roles">{{role}}</li>
+            </ul>
+        </dd>
+    </dl> 
+    <a class="btn btn-primary" ng-href="/users/edit/{{user.id}}">Edit</a>
+    <span class="btn btn-danger" data-ng-click="deleteUser(user.id)">Delete</span>
+    <a class="btn btn-default" href="/users">Back to list</a>
+
+</div>

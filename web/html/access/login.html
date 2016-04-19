@@ -1,0 +1,14 @@
+<div class="form form_login">
+	<form class="form-signin" role="form" data-ng-submit="login()">
+	    <h2>Hi! - Log in to start</h2>
+	    <div class="error_message">{{globalError}}</div>
+	    <input type="hidden" data-ng-model="loginModel._csrf_token">
+	    <input type="text" placeholder="Email address" data-ng-model="loginModel._username">
+	    <input type="password" placeholder="Password" data-ng-model="loginModel._password">
+	    <button type="submit" class="action_button orange">
+	        <i class="fa" data-ng-class="{'fa-cog fa-spin': isBusy, 'fa-sign-in': !isBusy}"></i>
+	        <span>Sign in</span>
+	    </button>
+	    <a data-ui-sref="root.reset_password_email" class="forgot_password_link">Forgot password or username?</a>
+	</form>
+</div>

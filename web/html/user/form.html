@@ -1,0 +1,50 @@
+<div class="form edit_add_user">
+
+    <div class="add_edit_heading">
+        <h1>{{action}} user</h1>
+    </div>
+
+    <md-content>
+    <form name="userForm" class="form" data-ng-submit="saveUser()" autocomplete="off">
+        <div class="input_wrapper">
+            <md-input-container>
+                <label class="label_user" for="user_firstName">First name</label>
+                <div data-field-errors="errors.children.firstName.errors"></div>
+                <div>
+                    <input class="no-margin form-control" type="text" id="user_firstName" name="firstName" required data-ng-model="user.firstName" ng-blur="updateUserField('firstName')" maxlength="255" autocomplete=""/>
+                    <div ng-messages for="userForm.firstName.$error">
+                        <span ng-message when="required">This field is required</span>
+                    </div> 
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label class="label_user" for="user_lastName">Last name</label>
+                <div>
+                <div data-field-errors="errors.children.lastName.errors"></div>
+                    <input class="no-margin form-control" type="text" id="user_lastName" ng-blur="updateUserField('lastName')" name="lastName" data-ng-model="user.lastName" required="" maxlength="5"/>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <label class="label_user" for="user_email">Email</label>
+                <div>
+                    <input class="no-margin form-control" id="user_email" ng-blur="updateUserField('email')" name="email" type="email" data-ng-model="user.email" autocomplete="off"/>
+                </div>
+                <div ng-messages for="userForm.email.$error">
+                    <span ng-message when="required">This field is required</span>
+                    <span ng-message when="email">This is not a valid email.</span>
+                </div> 
+                <div data-ng-repeat="error in errors.email">
+                    <span>{{error}}</span>
+                </div>
+            </md-input-container>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="edit_buttons">
+            <div class="back_to_list">
+                <a href="/users" class="btn btn-default">Back to list</a>
+            </div>
+        </div>
+    </form>
+    </md-content>
+</div>

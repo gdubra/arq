@@ -1,0 +1,51 @@
+<div layout="row" class="loggedin-user-bar" ng-cloak id="header">   
+    
+    <div flex>
+        <h4 class="product-name">Arquitectura API + WEB CLIENT</h4>
+    </div>
+    
+    <div layout="row" class="nav-inputs">
+        <md-menu flex ng-if="isUserLoggedIn">
+            <button ng-click="$mdOpenMenu()" class="avatar"></button>
+            <md-menu-content>
+                <md-menu-item ng-if="shouldShowMenu('admin')">
+                    <md-button ng-href="/manager-dashboard">Manager Dashboard</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-href="">User Settings</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-click="logout()">Logout</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</div>
+
+<md-menu-bar layout="row" class="wealth-nav" ng-cloak>
+    <div flex="25">
+        <md-input-container flex-gt-sm>
+            View as
+            <md-select ng-model="selectedPerspective" ng-model-options="{trackBy: '$value.id'}" aria-label="View As">
+                <md-option ng-value="perspective">Option 1</md-option>
+                <md-option ng-value="perspective">Option 2</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+    <div flex>
+        <md-menu>
+            <button ng-click="$mdOpenMenu()" class="wealth-pillar">Net Worth</button>
+            <md-menu-content> 
+                <md-menu-item>
+                    <md-button ng-click="hrefCustomerDashboard('net_worth')">Net Worth Dashboard</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button ng-href="/net-worth/report">Net Worth Report</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button>Investment Plan</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+    </div>
+</md-menu-bar>

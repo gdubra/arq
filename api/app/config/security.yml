@@ -1,0 +1,45 @@
+
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       [ROLE_USER]
+        ROLE_MANAGER:     [ROLE_ADMIN]
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        default:
+            pattern:        /_profiler
+            anonymous:      ~
+        login:
+            pattern:        ^/api/login
+            provider:       fos_userbundle
+            stateless:      true
+            anonymous:      true
+            form_login:
+                check_path:                 /api/login_check
+                success_handler:            lexik_jwt_authentication.handler.authentication_success
+                failure_handler:            lexik_jwt_authentication.handler.authentication_failure
+                require_previous_session:   false
+                use_forward:                false
+        api:
+            provider: fos_userbundle
+            pattern:   ^/api
+            stateless: true
+            lexik_jwt: ~
+            anonymous: true
+        other:
+            stateless:      true
+            lexik_jwt:      ~
+            
+    access_control:
+        - { path: ^/api/login,                                          role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/register,                                       role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/users/check_password_reset_token/,              role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/users/reset_password_and_authenticate_user/,    role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/admin/,                                         role: ROLE_ADMIN }     
+        - { path: ^/api/users,                                          role: ROLE_MANAGER }

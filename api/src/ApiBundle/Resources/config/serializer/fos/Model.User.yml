@@ -1,0 +1,15 @@
+FOS\UserBundle\Model\User:
+    exclusion_policy: ALL
+    properties:
+        lastLogin:
+            expose: true
+            groups: ['index']
+        enabled:
+            expose: true
+            groups: ['index','edit']
+        email:
+            expose: true
+            groups: ['index','edit']
+        roles:
+            expose: true
+            groups: ['index','edit']
